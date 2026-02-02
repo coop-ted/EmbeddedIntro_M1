@@ -30,7 +30,6 @@ int sort_array(int array[], int size);
 /* Add Your Declarations and Function Comments here */ 
 int print_statistics(int array[], int size)//Prints the statistics of an array including minimum, maximum, mean, and median
 {
-    printf("Statistics:\n");
     printf("Minimum: %d\n", find_minimum(array, size));
     printf("Maximum: %d\n", find_maximum(array, size));
     printf("Mean: %d\n", find_mean(array, size));
@@ -39,18 +38,16 @@ int print_statistics(int array[], int size)//Prints the statistics of an array i
 }
 int print_array(int array[], int size)//Prints the array to the screen given an array and it's length
 {
-    printf("Array: \n");
     for(int i = 0; i < size; i++)
     {
-        printf("%d is the %dth element of the array\n", array[i], i+1);
+        printf("%d, ", array[i]);
     }
     printf("\n");
     return 0;
 }
 int find_median(int array[], int size)//Finds the median value of an array given an array and it's length
 {
-    printf("Finding Median...\n");
-    array = sort_array(array, size);
+    sort_array(array, size);
     int median = 0;
     if (size % 2 == 0) //if the size is even
     {
@@ -65,7 +62,6 @@ int find_median(int array[], int size)//Finds the median value of an array given
 }
 int find_mean(int array[], int size)//Finds the mean value of an array given an array and it's length
 {
-    printf("Finding Mean...\n");
     int sum = 0;
     for(int i = 0; i < size; i++)
     {
@@ -75,7 +71,6 @@ int find_mean(int array[], int size)//Finds the mean value of an array given an 
 }
 int find_maximum(int array[], int size )//Finds the maximum value of an array given an array and it's length
 {
-    printf("Finding Maximum...\n");
     int max = array[0];
     for(int i = 1; i < size; i++)
     {
@@ -88,7 +83,6 @@ int find_maximum(int array[], int size )//Finds the maximum value of an array gi
 }
 int find_minimum(int array[], int size)//Finds the minimum value of an array given an array and it's length
 {
-    printf("Finding Minimum...\n");
     int min = array[0];
     for(int i = 1; i < size; i++)
     {
@@ -99,24 +93,25 @@ int find_minimum(int array[], int size)//Finds the minimum value of an array giv
     }
     return min;
 }
-int sort_array(int array[], int size)//Given an array and it's length, sorts the array from largest to smallest value
+
+int sort_array(int array[], int size) 
 {
-    printf("Sorting Array...\n");
-    int temp = 0;
-    for(int i = 0; i < size-1; i++)
+    for (int i = 0; i < size - 1; i++)
     {
-        for(int j = 0; j < size-i-1; j++)
+        for (int j = 0; j < size - i - 1; j++) 
         {
-            if(array[j] < array[j+1]) //swap if the current value is less than the next value
+            if (array[j] > array[j + 1]) 
             {
-                temp = array[j];
-                array[j] = array[j+1];
-                array[j+1] = temp;
+                // Swap elements
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
             }
         }
     }
-    return array;
+    return 0;
 }
+
 
 
 #endif /* __STATS_H__ */

@@ -29,11 +29,11 @@
 
 int main(void) {
 
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
+  int test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
+                    114, 88,   45,  76, 123,  87,  25,  23,
+                    200, 122, 150, 90,   92,  87, 177, 244,
+                    201,   6,  12,  60,   8,   2,   5,  67,
+                      7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
 
@@ -43,18 +43,20 @@ int main(void) {
   printf("%d is the first element of the test array.\n", test[0]);
 
   printf("Original Array:\n");
+
   print_array(test, SIZE);
 
   //sort the array, create a new array to hold the sorted values
-  unsigned char* testSorted = sort_array(test, SIZE);
+  sort_array(test, SIZE);
   
   //print the sorted array
   printf("Sorted Array:\n");
-  print_array(testSorted, SIZE);
+  print_array(test, SIZE);
 
   //print statistics
   printf("Array Statistics:\n");
-  print_statistics(testSorted, SIZE);
+  print_statistics(test, SIZE);
+
   return 0;
 }
 
